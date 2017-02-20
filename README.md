@@ -11,6 +11,7 @@ Simply clone this repository and run `node main.js <artist> <song name>` on the 
 ## Features in Progress
 - ability to pass multiple songs as parameters
 - support for other websites (may require API credentials)
+- image manipulation (scaling, cropping, output to other formats)
 
 ## Contributing
 Feel free to submit a pull request if you think you can make this better!
