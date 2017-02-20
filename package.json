@@ -1,0 +1,12 @@
+{
+  "name": "album-art-getter",
+  "description": "Node script that gets album art given song artist and name.",
+  "version": "0.0.1",
+  "main": "main.js",
+  "repository": "https://github.com/sunquan8094/album-art-getter",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "http": "0.0.0",
+    "xml2js": "^0.4.17"
+  }
+}
