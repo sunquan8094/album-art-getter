@@ -6,7 +6,7 @@ Are you tired of having dull-looking podcast visuals but don't want to spend all
 - cURL
 
 ## Usage
-Simply clone this repository and run `node main.js <artist> <song name>` on the command line.
+Simply clone this repository, install the necessary dependencies, and run `node main.js <artist> <song name>` on the command line.
 
 ## History
 ### 0.0.1 (2017-02-19)
