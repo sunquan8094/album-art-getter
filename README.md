@@ -1,11 +1,15 @@
 # Album Art Getter
 Are you tired of having dull-looking podcast visuals but don't want to spend all that time browsing for album art for each of your songs? Then this Node script could be a potential solution for your troubles.
 
+## Prerequisites
+- NodeJS
+- cURL
+
 ## Usage
 Simply clone this repository and run `node main.js <artist> <song name>` on the command line.
 
 ## History
-### 0.0.1
+### 0.0.1 (2017-02-19)
 - support for [lololyrics.com](lololyrics.com) requests added
 
 ## Features in Progress
