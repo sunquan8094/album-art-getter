@@ -8,8 +8,8 @@ Are you tired of having dull-looking podcast visuals but don't want to spend all
 Simply clone this repository, install the necessary dependencies, and run `node main.js <artist> <song name> [<size in pixels>px | <scale>x] [-<API mode>]` on the command line. The artist and song name must come first in order. The remaining two parameters are optional and can be passed in either order.
 
 The following API modes are valid, with mode 1 as the default mode:
-- 1: Lololyrics API
-- 2: Spotify API
+- 1: [Lololyrics API](http://api.lololyrics.com/)
+- 2: [Spotify Web API](https://developer.spotify.com/web-api/)
 
 ## History
 
