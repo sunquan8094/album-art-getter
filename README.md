@@ -3,7 +3,6 @@ Are you tired of having dull-looking podcast visuals but don't want to spend all
 
 ## Prerequisites
 - NodeJS
-- cURL
 
 ## Usage
 Simply clone this repository, install the necessary dependencies, and run `node main.js <artist> <song name> [<size in pixels>px | <scale>x]` on the command line.

@@ -13,26 +13,18 @@ exports.validateParams = function(params) {
   }
 
   if (params.length === 5) {
-    if (!params[4].endsWith("px") && !params[4].endsWith("x")) {
-      console.log("Error: Size in wrong format.");
+    if (!(/^\d+(\.\d+)?p?x/.test(params[4]))) {
+      console.log("Error: Invalid size parameter.");
       return false;
     }
 
     var endOfNum = (params[4].indexOf("p") > -1) ? params[4].indexOf("p") : params[4].indexOf("x");
 
     if (Number(params[4].substring(0, endOfNum)) !== NaN) {
-      if (Number(params[4].substring(0, endOfNum)) <= 0) {
-        console.log("Error: Size must be nonzero and nonnegative.");
-        return false;
-      }
       if (params[4].endsWith("px") && Math.floor(Number(params[4].substring(0, endOfNum))) < Number(params[4].substring(0, endOfNum))) {
         console.log("Error: Size must be an integer for pixels.");
         return false;
       }
-    }
-    else {
-      console.log("Error: Size in wrong format.");
-      return false;
     }
   }
   return true;
