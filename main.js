@@ -38,29 +38,26 @@ exports.validateParams = function(params) {
   exports.size_param_index = exports.firstIndexOfRegexInArray(params, /^\d+(\.\d+)?p?x$/);
   exports.api_index = exports.firstIndexOfRegexInArray(params, /^\-[12]$/);
 
-  if (exports.size_param_index <= -1 && (!(params.length == 5 && exports.api_index > -1))) {
-    console.log("Error: Invalid size parameter.");
+  if (exports.size_param_index <= -1 && exports.api_index <= 1 && params.length > 4) {
+    console.log("Parameters in wrong format.");
     return false;
   }
-  else if (exports.size_param_index > -1){
+
+  if (exports.size_param_index > -1) {
     exports.size_param = params[exports.size_param_index];
     exports.endOfNum = (exports.size_param.indexOf("p") > -1) ? exports.size_param.indexOf("p") : exports.size_param.indexOf("x");
 
-    if (Number(exports.size_param.substring(0, endOfNum)) !== NaN) {
-      if (exports.size_param.endsWith("px") && Math.floor(Number(exports.size_param.substring(0, endOfNum))) < Number(exports.size_param.substring(0, endOfNum))) {
-        console.log("Error: Size must be an integer for pixels.");
-        return false;
-      }
+    var num = exports.size_param.substring(0, exports.endOfNum);
+
+    if (exports.size_param.endsWith("px") && exports.size_param.indexOf(".") > -1) {
+      console.log("Error: Size must be an integer for pixels.");
+      return false;
     }
 
     exports.resize_type = (exports.size_param.indexOf("p") > -1) ? "px" : "x";
   }
 
-  if (exports.api_index <= -1 && (!(params.length == 5 && exports.size_param_index > -1))) {
-    console.log("Error: Invalid API mode parameter.");
-    return false;
-  }
-  else if (exports.api_index > -1) {
+  if (exports.api_index > -1) {
     exports.api_param = params[exports.api_index];
     exports.api_mode = Number(exports.api_param.substring(1));
   }
