@@ -9,9 +9,12 @@ Simply clone this repository, install the necessary dependencies, and run `node 
 
 ## History
 
+### 0.1.1 (2017-02-20)
+- fixed and optimized resize parameter validation
+
 ### 0.1.0 (2017-02-20)
 - modularized main script
-- added parameter tests
+- added parameter validation tests
 - added optional image resizing and scaling via command line
 
 ### 0.0.1 (2017-02-19)
