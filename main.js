@@ -54,6 +54,7 @@ exports.validateParams = function(params) {
       return false;
     }
 
+    exports.size = Number(num);
     exports.resize_type = (exports.size_param.indexOf("p") > -1) ? "px" : "x";
   }
 
@@ -67,7 +68,7 @@ exports.validateParams = function(params) {
 
 exports.manipulateImage = function(err, img) {
   if (err) {
-    console.error(err); return false;
+    console.error(err);
   }
   if (exports.size !== 0) {
     console.log("Resizing image...");
@@ -79,7 +80,6 @@ exports.manipulateImage = function(err, img) {
     }
   }
   else img.clone().write(exports.artist + ' - ' + exports.song + '.jpeg');
-  return true;
 }
 
 exports.getPictures = function() {
@@ -95,7 +95,6 @@ exports.getPictures = function() {
     response.on('end', function() {
       if (exports.api_mode === 1) {
         parsed = xml2js.parseString(doc, function(err, result) {
-          console.log(result);
           if (result.result.status[0] === 'OK') {
             console.log("Status OK. Obtaining album art...");
             Jimp.read(result.result.cover[0], exports.manipulateImage).catch(function(err) {
@@ -114,7 +113,6 @@ exports.getPictures = function() {
       }
       else if (exports.api_mode === 2) {
         parsed = JSON.parse(doc);
-        console.log(parsed.tracks.items);
         Jimp.read(parsed.tracks.items[0].album.images[0].url, exports.manipulateImage).catch(function(err) {
           console.error(err);
           console.log("There was an error processing your image.");
