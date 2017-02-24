@@ -23,9 +23,9 @@ describe("Parameter tests", function() {
       });
     });
 
-    describe("More than 6 parameters - 7", function() {
+    describe("More than 7 parameters - 8", function() {
       it("returns false", function(done) {
-        expect(main.validateParams(["node", "main.js", "Wasted Penguinz", "Magic", "Clarity", "2016", "Dirty Workz"])).toBe(false);
+        expect(main.validateParams(["node", "main.js", "Wasted Penguinz", "Magic", "Clarity", "2016", "Dirty Workz", "150"])).toBe(false);
         done();
       });
     });
@@ -56,6 +56,20 @@ describe("Parameter tests", function() {
     describe("Invalid API mode flag - one nonnumeric character", function() {
       it("returns false", function(done) {
         expect(main.validateParams(["node", "main.js", "The Color Morale", "Keep Me In My Body", "-p"])).toBe(false);
+        done();
+      });
+    });
+  });
+  describe("Invalid output filename", function() {
+    describe("Unsupported format", function() {
+      it("returns false", function (done) {
+        expect(main.validateParams(["node", "main.js", "The Color Morale", "Keep Me In My Body", "meh.gif"])).toBe(false);
+        done();
+      });
+    });
+    describe("No format", function() {
+      it("returns false", function (done) {
+        expect(main.validateParams(["node", "main.js", "The Color Morale", "Keep Me In My Body", "meh.gif"])).toBe(false);
         done();
       });
     });
