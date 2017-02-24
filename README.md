@@ -5,13 +5,21 @@ Are you tired of having dull-looking podcast visuals but don't want to spend all
 - Node
 
 ## Usage
-Simply clone this repository, install the necessary dependencies, and run `node main.js <artist> <song name> [<size in pixels>px | <scale>x] [-<API mode>]` on the command line. The artist and song name must come first in order. The remaining two parameters are optional and can be passed in either order.
+Simply clone this repository, install the necessary dependencies, and run `node main.js <artist> <song name> [<size in pixels>px | <scale>x] [-<API mode>] [<output file/format>]` on the command line. The artist and song name must come first in order. The other parameters are optional and can be passed in any order.
 
 The following API modes are valid, with mode 1 as the default mode:
 - 1: [Lololyrics API](http://api.lololyrics.com/)
 - 2: [Spotify Web API](https://developer.spotify.com/web-api/)
 
+The following image types are supported:
+- BMP
+- JPEG/JPG
+- PNG
+
 ## History
+
+### 0.3.0 (2017-02-23)
+- output file/format parameter
 
 ### 0.2.0 (2017-02-20)
 - added support for Spotify Web API requests
