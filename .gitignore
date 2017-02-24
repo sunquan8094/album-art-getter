@@ -1,3 +1,6 @@
 node_modules/
 *.jpeg
+*.jpg
 .DS_Store
+*.png
+*.bmp
