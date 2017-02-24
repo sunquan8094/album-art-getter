@@ -88,12 +88,17 @@ exports.manipulateImage = function(err, img) {
   if (err) {
     console.error(err);
   }
-  var name = exports.artist + ' - ' + exports.song + "_" + (exports.size_param > 0) ? exports.size_param : "" + '.jpeg';
-  if (exports.size !== 0) {
-    console.log("Resizing image...");
-    if (exports.output_filename !== "") {
+  var name = exports.artist + ' - ' + exports.song + ((exports.size_param > 0) ? ("_" + exports.size_param) : "") + '.jpeg';
+  if (exports.output_filename !== "") {
+    if (valid_img_types.indexOf(exports.output_filename) === -1) {
       name = exports.output_filename;
     }
+    else {
+      name = exports.artist + ' - ' + exports.song + ((exports.size_param > 0) ? ("_" + exports.size_param) : "") + '.' + exports.output_filename;
+    }
+  }
+  if (exports.size !== 0) {
+    console.log("Resizing image...");
     if (exports.resize_type === "px") {
       img.clone().resize(exports.size,Jimp.AUTO).quality(60).write(name);
     }
